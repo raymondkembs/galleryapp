@@ -1,0 +1,132 @@
+.admin-dashboard {
+  padding: 2rem;
+  font-family: "Segoe UI", sans-serif;
+  color: #222;
+}
+
+/* Tabs */
+.admin-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-tabs button {
+  background: #f0f0f0;
+  border: none;
+  padding: 0.7rem 1.4rem;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.admin-tabs button:hover {
+  background: #e6e6e6;
+  transform: translateY(-2px);
+}
+
+.admin-tabs button.active {
+  background: linear-gradient(180deg, #ffffff, #eaeaea);
+  border: 1px solid #ccc;
+}
+
+/* Content area */
+.admin-content {
+  background: linear-gradient(180deg, #ffffff, #fafafa);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+}
+
+/* Topic, Post, User cards */
+.topic-card,
+.post-card,
+.user-card {
+  background: linear-gradient(180deg, #ffffff, #f9f9f9);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.topic-card:hover,
+.post-card:hover,
+.user-card:hover {
+  transform: translateY(-3px);
+}
+
+.topic-card h3,
+.user-card h3 {
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+}
+
+/* Buttons inside cards */
+.topic-card button,
+.post-card button,
+.user-card button {
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.topic-card button:hover,
+.post-card button:hover,
+.user-card button:hover {
+  background: #eaeaea;
+}
+
+
+
+/* .add-topic-form {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.add-topic-form input {
+  flex: 1;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.add-topic-form button {
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.admin-tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.admin-tabs button {
+  background: linear-gradient(135deg, #43cea2, #185a9d);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.admin-tabs button:hover {
+  opacity: 0.9;
+}
+
+.admin-content {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+} */
