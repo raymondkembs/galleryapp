@@ -13,14 +13,34 @@ import "../style/AdminDashboard.css";
 import { useNavigate } from "react-router-dom";
 import ManagePosts from "./ManagePosts";
 import ManageUsers from "./ManageUsers";
+import ManageTopics from "./ManageTopics";
+import EditProfile from "./EditProfile";
+
 
 export default function AdminDashboard() {
   const [topics, setTopics] = useState([]);
   const [newTitle, setNewTitle] = useState("");
   const [showModal, setShowModal] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState(null);
-  const [activeTab, setActiveTab] = useState("topics"); // NEW
+  const [activeTab, setActiveTab] = useState("topics"); 
+  const [stats, setStats] = useState({ topics: 0, posts: 0, users: 0 });
   const navigate = useNavigate();
+
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      const topicsSnap = await getDocs(collection(db, "topics"));
+      const postsSnap = await getDocs(collection(db, "posts"));
+      const usersSnap = await getDocs(collection(db, "users"));
+
+      setStats({
+        topics: topicsSnap.size,
+        posts: postsSnap.size,
+        users: usersSnap.size,
+      });
+    };
+    fetchStats();
+  }, []);
 
   useEffect(() => {
     const fetchTopics = async () => {
@@ -60,11 +80,19 @@ export default function AdminDashboard() {
     <div className="admin-dashboard">
       <h2>Admin Dashboard</h2>
 
+      <div className="stats-bar">
+        <div className="stat-card">📂 Topics: {stats.topics}</div>
+        <div className="stat-card">🖼️ Posts: {stats.posts}</div>
+        <div className="stat-card">👥 Users: {stats.users}</div>
+      </div>
+
+
       {/* Tab Navigation */}
       <div className="admin-tabs">
         <button onClick={() => setActiveTab("topics")}>Topics</button>
         <button onClick={() => setActiveTab("posts")}>Posts</button>
         <button onClick={() => setActiveTab("users")}>Users</button>
+        <button onClick={() => setActiveTab("profile")}>Profile</button>
       </div>
 
       {/* Tab Content */}
@@ -93,10 +121,12 @@ export default function AdminDashboard() {
             </div>
           </>
         )}
-
-        {activeTab === "posts" && <ManagePosts />}
-
-        {activeTab === "users" && <ManageUsers />}
+        <div className="tab-content">
+          {activeTab === "topics" && <ManageTopics />}
+          {activeTab === "posts" && <ManagePosts />}
+          {activeTab === "users" && <ManageUsers />}
+          {activeTab === "profile" && <EditProfile />}
+        </div>
       </div>
 
       {/* Confirmation Modal */}

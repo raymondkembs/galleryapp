@@ -80,53 +80,55 @@
   background: #eaeaea;
 }
 
-
-
-/* .add-topic-form {
+.stats-bar {
   display: flex;
   gap: 1rem;
-  margin: 1.5rem 0;
+  margin-bottom: 2rem;
 }
 
-.add-topic-form input {
+.stat-card {
   flex: 1;
-  padding: 0.6rem;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  background: linear-gradient(180deg, #ffffff, #f7f7f7);
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1rem;
+  font-weight: 600;
+  text-align: center;
 }
-
-.add-topic-form button {
-  background: linear-gradient(135deg, #43cea2, #185a9d);
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-}
-.admin-tabs {
-  display: flex;
+/* Existing grid styles */
+.topics-grid,
+.posts-grid,
+.users-grid {
+  display: grid;
   gap: 1rem;
-  margin-bottom: 1.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 }
 
+/* Responsive overrides */
+@media (max-width: 600px) {
+  .stats-bar {
+    flex-direction: column;
+  }
+
+  .admin-tabs {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .topics-grid,
+  .posts-grid,
+  .users-grid {
+    grid-template-columns: 1fr; /* stack cards vertically */
+  }
+}
 .admin-tabs button {
-  background: linear-gradient(135deg, #43cea2, #185a9d);
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
+  padding: 0.6rem 1rem;
   border-radius: 8px;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
   cursor: pointer;
-  font-weight: bold;
 }
 
 .admin-tabs button:hover {
-  opacity: 0.9;
+  background: #e6e6e6;
 }
-
-.admin-content {
-  background: #fff;
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-} */
