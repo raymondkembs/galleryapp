@@ -71,8 +71,17 @@ export default function CommentSection({ postId, isAdmin = false }) {
           {comments.map(c => (
             <div key={c.id} className="comment-card">
               <div className="comment-header">
-                <img src={c.profilePic} alt="avatar" className="avatar" />
-                <span>{c.username}</span>
+                {/* <img src={c.profilePic} alt="avatar" className="avatar" /> */}
+                <img
+                  src={c.profilePic || "https://www.gravatar.com/avatar/?d=mp"}
+                  alt="avatar"
+                  className="avatar"
+                  onError={(e) => {
+                    e.currentTarget.onerror = null; // prevents infinite loop
+                    e.currentTarget.src = "https://www.gravatar.com/avatar/?d=mp";
+                  }}
+                />
+                <span><b>{c.username}</b></span>
                 {!isAdmin && auth.currentUser?.uid === c.userId && (
                   <button
                     className="delete-btn"

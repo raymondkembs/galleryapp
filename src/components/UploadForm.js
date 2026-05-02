@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { db, auth } from "../firebase";
 import { collection, addDoc, serverTimestamp, updateDoc, doc, increment } from "firebase/firestore";
- 
+import "../style/UploadForm.css"; 
+
 const CLOUD_NAME = "dxr77jrix";       // replace with your Cloudinary cloud name
 const UPLOAD_PRESET = "first_time_gallery_app"; // replace with your unsigned preset
 
@@ -70,28 +71,35 @@ export default function UploadForm({ topicId }) {
     console.error("Upload error:", err);
   }
 };
+    return (
+        <div className="upload-container">
+          
+          <h3 className="upload-title">Post an Image</h3>
 
+          <form onSubmit={handleSubmit} className="upload-form">
 
-  return (
-    <div>
-      <h3>Post an Image</h3>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="file"
-          accept="image/*"
-          onChange={(e) => setFile(e.target.files[0])}
-        />
-        <button type="submit">Upload</button>
-      </form>
+            <label className="file-label">
+              <input
+                type="file"
+                accept="image/*"
+                onChange={(e) => setFile(e.target.files[0])}
+              />
+              <span>Select Image</span>
+            </label>
 
-      {url && (
-        <div>
-          <p>Uploaded Image URL:</p>
-          <a href={url} target="_blank" rel="noopener noreferrer">{url}</a>
-          <br />
-          <img src={url} alt="Uploaded preview" style={{ maxWidth: "300px" }} />
+            <button type="submit" className="upload-btn">
+              Upload
+            </button>
+
+          </form>
+
+          {url && (
+            <div className="preview">
+              <p>Uploaded:</p>
+              <img src={url} alt="preview" />
+            </div>
+          )}
+
         </div>
-      )}
-    </div>
-  );
+      );
 }

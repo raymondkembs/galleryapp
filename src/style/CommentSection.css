@@ -1,10 +1,157 @@
+/* SECTION WRAPPER */
 .comments-section {
+  margin-top: 10px;
+}
+
+/* toggle button */
+.comments-section button {
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: #444;
+  cursor: pointer;
+  padding: 6px 0;
+}
+
+/* LIST */
+.comments-list {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  /* 👇 key part */
+  max-height: 220px;
+  overflow-y: auto;
+
+  padding-right: 6px;
+}
+
+/* optional: nicer scrollbar */
+.comments-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.comments-list::-webkit-scrollbar-thumb {
+  background: #e0cfc2;
+  border-radius: 10px;
+}
+
+.comments-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* ================= COMMENT CARD ================= */
+
+.comment-card {
+  background: #fff7f0;  /* warm soft tone */
+  border: 1px solid #f0e3d8;
+
+  border-radius: 12px;
+  padding: 10px 12px;
+
+  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+}
+
+/* HEADER INSIDE COMMENT */
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  margin-bottom: 4px;
+}
+
+/* avatar smaller (key fix) */
+.comment-header .avatar {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* username subtle */
+.comment-header span {
+  font-size: 12px;
+  font-weight: 500;
+  color: #333;
+}
+
+/* comment text (main content) */
+.comment-card p {
+  font-size: 13px;
+  color: #222;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* delete button becomes subtle action */
+.delete-btn {
+  margin-left: auto;
+
+  background: none;
+  border: none;
+
+  font-size: 11px;
+  color: #c14444;
+  cursor: pointer;
+  padding: 4px 6px;
+
+  border-radius: 6px;
+}
+
+.delete-btn:hover {
+  background: rgba(193, 68, 68, 0.08);
+}
+
+/* ================= INPUT ================= */
+
+.comment-input {
+  display: flex;
+  gap: 8px;
+
+  margin-top: 12px;
+}
+
+.comment-input input {
+  flex: 1;
+
+  padding: 8px 10px;
+  font-size: 13px;
+
+  border: 1px solid #e6d5c9;
+  border-radius: 10px;
+
+  background: #fffaf5;
+  outline: none;
+}
+
+.comment-input button {
+  padding: 8px 12px;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  background: #000;
+  color: #fff;
+
+  border: none;
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.comment-input button:hover {
+  background: #222;
+}
+
+/* .comments-section {
   padding: 1rem;
 }
 
 .comments-section button {
   background: #007bff;
-  color: white;
+  color: rgb(15, 6, 6);
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 6px;
@@ -64,4 +211,4 @@
   padding: 0.5rem 1rem;
   border-radius: 6px;
   cursor: pointer;
-}
+} */

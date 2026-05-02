@@ -7,7 +7,7 @@ import CommentSection from "./CommentSection";
 import '../style/TopicPage.css'
 
 export default function TopicPage() {
-  const { id } = useParams(); // topicId
+  const { id } = useParams();
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -20,25 +20,65 @@ export default function TopicPage() {
     fetchPosts();
   }, [id]);
 
-  
   return (
-    <div>
-      <h2>Topic Page</h2>
-      {/* Upload new image to this topic */}
-      <UploadForm topicId={id} />
+    <div className="topic-page">
 
-      <div className="posts-grid">
-        {posts.map(post => (
-          <div key={post.id} className="post-card">
-            <div className="user-info">
-              <img src={post.profilePic} alt="avatar" className="avatar" />
-              <span>{post.username}</span>
+      {/* background */}
+      <div className="bg-decor">
+        <div className="blob one"></div>
+        <div className="blob two"></div>
+      </div>
+
+      <div className="content">
+
+        <h2 className="title">Topic</h2>
+
+        {/* Upload section */}
+        <div className="upload-wrapper">
+          <UploadForm topicId={id} />
+        </div>
+
+        {/* Posts */}
+        <div className="posts-grid">
+          {posts.map(post => (
+            <div className="post-card">
+
+              {/* compact header */}
+              <div className="post-header">
+              {post.profilePic ? (
+                <img
+                  src={post.profilePic}
+                  className="avatar_img"
+                  alt="avatar"
+                  onError={(e) => {
+                    e.currentTarget.src = "https://www.gravatar.com/avatar/?d=mp";
+                  }}
+                />
+              ) : (
+                <div className="avatar_fallback">
+                  {post.username?.charAt(0).toUpperCase()}
+                </div>
+              )}
+                <span className="username">{post.username}</span>
+              </div>
+
+              {/* hero image */}
+              <img src={post.imageUrl} className="post-image" />
+
+              {/* action row */}
+              {/* <div className="post-actions">
+                <button className="comment-btn">💬 Comments</button>
+              </div> */}
+
+              {/* comments hidden in a cleaner container */}
+              <div className="comment-wrapper">
+                <CommentSection postId={post.id} />
+              </div>
+
             </div>
-            <img src={post.imageUrl} alt="Uploaded" style={{ maxWidth: "300px" }} />
-            {/* Comments dropdown will go here */}
-            <CommentSection postId={post.id} />
-          </div>
-        ))}
+          ))}
+        </div>
+
       </div>
     </div>
   );

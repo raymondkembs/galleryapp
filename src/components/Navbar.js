@@ -32,7 +32,7 @@ function Navbar() {
 
   return (
     <nav className="navbar">
-      <div className="logo">📸 GalleryApp</div>
+      <div className="logo">📸 GalleryApps</div>
       <ul className="nav-links">
         <li><Link to="/home">Home</Link></li>
         <li><Link to="/login">Login</Link></li>

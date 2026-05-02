@@ -1,0 +1,188 @@
+/* Page layout */
+.login-page {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Courier New", monospace;
+  background: #f5f1e6;
+}
+
+/* Background container */
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Base circle */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  /* opacity: 0.8;
+  filter: saturate(80%) contrast(90%); */
+}
+
+/* ================= IMAGE CIRCLES ================= */
+
+.img1, .img2, .img3, .img4, .img5 {
+  z-index: 3; /* always above colored circles */
+
+  /* shadow ONLY for images */
+  box-shadow: 
+    0 12px 30px rgba(0,0,0,0.35),
+    inset 0 0 15px rgba(0,0,0,0.15);
+}
+
+/* images */
+.img1 {
+  width: 180px;
+  height: 180px;
+  top: 8%;
+  left: 12%;
+  background-image: url("https://images.pexels.com/photos/33402136/pexels-photo-33402136.jpeg");
+}
+
+.img2 {
+  width: 220px;
+  height: 220px;
+  bottom: 12%;
+  right: 8%;
+  background-image: url("https://images.pexels.com/photos/9320842/pexels-photo-9320842.jpeg");
+}
+
+.img3 {
+  width: 150px;
+  height: 150px;
+  top: 55%;
+  left: 38%;
+  background-image: url("https://images.pexels.com/photos/37271307/pexels-photo-37271307.jpeg");
+}
+
+.img4 {
+  width: 170px;
+  height: 170px;
+  bottom: 25%;
+  left: 20%;
+  background-image: url("https://images.pexels.com/photos/37053464/pexels-photo-37053464.jpeg");
+}
+
+.img5 {
+  width: 140px;
+  height: 140px;
+  top: 25%;
+  right: 30%;
+  background-image: url("https://images.pexels.com/photos/36504033/pexels-photo-36504033.jpeg");
+}
+
+/* slight depth blur */
+.img3, .img5 {
+  filter: blur(1px) saturate(75%);
+}
+
+/* ================= FLAG COLORS ================= */
+
+/* brighter but still soft */
+.red { background: rgba(220, 20, 20, 0.75); }
+.black { background: rgba(30, 30, 30, 0.75); }
+.green { background: rgba(0, 140, 70, 0.75); }
+
+/* NO shadow for color circles */
+.red, .black, .green {
+  box-shadow: none;
+  z-index: 1;
+}
+
+/* sizes */
+.big { width: 260px; height: 260px; }
+.medium { width: 180px; height: 180px; }
+.small { width: 100px; height: 100px; }
+.tiny { width: 60px; height: 60px; }
+
+/* ================= LAYOUT (CONTROLLED OVERLAP) ================= */
+
+/* big base circles */
+.big.green { top: 15%; right: 15%; }
+.big.black { bottom: 20%; left: 5%; }
+
+/* medium layer */
+.medium.red { top: 65%; right: 35%; }
+
+/* small overlap accents */
+.overlap1 {
+  top: 18%;
+  right: 18%;
+  z-index: 2;
+}
+
+.overlap2 {
+  bottom: 18%;
+  left: 8%;
+  z-index: 2;
+}
+
+.overlap3 {
+  top: 68%;
+  right: 38%;
+  z-index: 2;
+}
+
+/* ================= LOGIN FORM ================= */
+
+.login-form {
+  position: relative;
+  z-index: 5;
+  width: 300px;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 30px;
+
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid #000;
+  box-shadow: 6px 6px 0px #000;
+  text-align: center;
+}
+
+.login-form input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 10px;
+  border: 2px solid #000;
+  background: #fff;
+  font-family: inherit;
+}
+
+.login-form button {
+  width: 100%;
+  padding: 10px;
+  background: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.login-form button:hover {
+  background: #333;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+/* ================= VINTAGE GRAIN ================= */
+
+.background::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("https://www.transparenttextures.com/patterns/noise.png");
+  opacity: 0.12;
+  pointer-events: none;
+}

@@ -81,9 +81,22 @@ export default function AdminDashboard() {
       <h2>Admin Dashboard</h2>
 
       <div className="stats-bar">
-        <div className="stat-card">📂 Topics: {stats.topics}</div>
-        <div className="stat-card">🖼️ Posts: {stats.posts}</div>
-        <div className="stat-card">👥 Users: {stats.users}</div>
+
+        <div className="stat-item topics">
+          <span className="stat-icon">📂</span>
+          <span className="stat-text">Topics: {stats.topics}</span>
+        </div>
+
+        <div className="stat-item posts">
+          <span className="stat-icon">🖼️</span>
+          <span className="stat-text">Posts: {stats.posts}</span>
+        </div>
+
+        <div className="stat-item users">
+          <span className="stat-icon">👥</span>
+          <span className="stat-text">Users: {stats.users}</span>
+        </div>
+
       </div>
 
 
@@ -109,13 +122,41 @@ export default function AdminDashboard() {
               <button onClick={handleAddTopic}>Add Topic</button>
             </div>
 
-            <div className="topics-grid">
+            {/* <div className="topics-grid">
               {topics.map(topic => (
                 <div key={topic.id} className="topic-card">
                   <h3>{topic.title}</h3>
                   <button onClick={() => handleDeleteClick(topic.id)}>Delete</button>
                   <button onClick={() => navigate(`/admin/topic/${topic.id}`)}>View</button>
                   <button>{topic.postCount || 0} Posts</button>
+                </div>
+              ))}
+            </div> */}
+            <div className="topics-grid">
+              {topics.map(topic => (
+                <div key={topic.id} className="topic-card">
+
+                  <div className="topic-header">
+                    <h3>{topic.title}</h3>
+                    <span className="post-count">{topic.postCount || 0} posts</span>
+                  </div>
+
+                  <div className="topic-actions">
+                    <button
+                      className="view-btn"
+                      onClick={() => navigate(`/admin/topic/${topic.id}`)}
+                    >
+                      View
+                    </button>
+
+                    <button
+                      className="delete-btn"
+                      onClick={() => handleDeleteClick(topic.id)}
+                    >
+                      Delete
+                    </button>
+                  </div>
+
                 </div>
               ))}
             </div>

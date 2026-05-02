@@ -37,7 +37,7 @@ function App() {
   return (
     <>
       <nav className="navbar">
-        <div className="logo">📸 GalleryApp</div>
+        <div className="logo">📸 GalleryApp |</div>
         <ul className="nav-links">
           <li><Link to="/home">Home</Link></li>
           {!currentUser && <li><Link to="/login">Login</Link></li>}

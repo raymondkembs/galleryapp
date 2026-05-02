@@ -95,6 +95,121 @@
   font-weight: 600;
   text-align: center;
 }
+
+
+/* GRID */
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* CARD */
+.topic-card {
+  background: #fff;
+  border-radius: 16px;
+
+  padding: 14px;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  transition: all 0.25s ease;
+}
+
+.topic-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.10);
+}
+
+/* HEADER */
+.topic-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.topic-header h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111;
+  margin: 0;
+}
+
+/* post count badge */
+.post-count {
+  font-size: 11px;
+  padding: 4px 8px;
+
+  background: #f5f5f5;
+  border-radius: 999px;
+
+  color: #555;
+  white-space: nowrap;
+}
+
+/* ACTIONS */
+.topic-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* buttons base */
+.topic-actions button {
+  flex: 1;
+
+  padding: 8px 10px;
+
+  border: none;
+  border-radius: 10px;
+
+  font-size: 12px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+/* view button */
+.view-btn {
+  background: #111;
+  color: #fff;
+}
+
+.view-btn:hover {
+  background: #333;
+}
+
+/* delete button */
+.delete-btn {
+  background: #fff0f0;
+  color: #c14444;
+}
+
+.delete-btn:hover {
+  background: #ffe1e1;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 600px) {
+  .topic-actions {
+    flex-direction: column;
+  }
+
+  .topic-actions button {
+    width: 100%;
+  }
+}
 /* Existing grid styles */
 .topics-grid,
 .posts-grid,
@@ -131,4 +246,171 @@
 
 .admin-tabs button:hover {
   background: #e6e6e6;
+}
+
+/* base stat pill */
+.stat-item {
+  flex: 1;               
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+
+  border-radius: 999px; 
+
+  background: #fff;
+  border: 1px solid #eee;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.04);
+
+  font-size: 1rem;
+  font-weight: 500;
+
+  transition: all 0.2s ease;
+}
+.stats-bar {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* KEY FIX */
+
+.stat-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+}
+
+/* icon circle */
+.stat-icon {
+  width: 26px;
+  height: 26px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  font-size: 14px;
+}
+
+/* ================= COLOR SYSTEM ================= */
+
+/* Topics */
+.stat-item.topics .stat-icon {
+  background: #e6f4ff;
+  color: #1e88e5;
+}
+.stat-item.topics .stat-text {
+  color: #1e88e5;
+}
+
+/* Posts */
+.stat-item.posts .stat-icon {
+  background: #fff3e6;
+  color: #f57c00;
+}
+.stat-item.posts .stat-text {
+  color: #f57c00;
+}
+
+/* Users */
+.stat-item.users .stat-icon {
+  background: #eafaf1;
+  color: #2e7d32;
+}
+.stat-item.users .stat-text {
+  color: #2e7d32;
+}
+
+
+/* container */
+.add-topic-form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  width: 100%;
+  max-width: 600px;
+
+  padding: 10px;
+  margin-bottom: 6px;
+
+  background: #fff;
+  border-radius: 14px;
+
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+/* input */
+.add-topic-form input {
+  flex: 1;
+
+  padding: 10px 12px;
+
+  border: 1px solid #eee;
+  border-radius: 10px;
+
+  font-size: 14px;
+
+  outline: none;
+
+  background: #fafafa;
+  transition: all 0.2s ease;
+}
+
+.add-topic-form input:focus {
+  border-color: #bbb;
+  background: #fff;
+}
+
+/* button */
+.add-topic-form button {
+  padding: 10px 14px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #111;
+  color: #fff;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+.add-topic-form button:hover {
+  background: #333;
+  transform: translateY(-1px);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 600px) {
+  .add-topic-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .add-topic-form button {
+    width: 100%;
+  }
+}
+/* responsive */
+@media (max-width: 600px) {
+  .stats-bar {
+    flex-direction: column;
+  }
+
+  .stat-item {
+    width: 100%;
+    justify-content: flex-start;
+  }
 }

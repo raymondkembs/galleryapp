@@ -1,0 +1,121 @@
+/* Page */
+.signup-page {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: #ffffff;
+  font-family: "Inter", sans-serif;
+}
+
+/* Background */
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* RING (hollow circle) */
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 6px solid;
+}
+
+/* Kenyan colors (BRIGHT, no opacity) */
+.red { border-color: #ff1a1a; }
+.green { border-color: #00b140; }
+.black { border-color: #000; }
+
+/* outline variations (thinner lines) */
+.outline-red { border: 3px solid #ff1a1a; }
+.outline-green { border: 3px solid #00b140; }
+
+/* Sizes */
+.big { width: 300px; height: 300px; }
+.medium { width: 200px; height: 200px; }
+.small { width: 120px; height: 120px; }
+.tiny { width: 70px; height: 70px; }
+
+/* Positioning (modern layered layout) */
+.big.red {
+  top: 10%;
+  left: 10%;
+}
+
+.medium.green {
+  top: 50%;
+  left: 20%;
+}
+
+.small.black {
+  top: 30%;
+  right: 15%;
+}
+
+.big.outline-green {
+  bottom: 10%;
+  right: 10%;
+}
+
+.medium.outline-red {
+  top: 20%;
+  right: 30%;
+}
+
+.tiny.black {
+  bottom: 20%;
+  left: 40%;
+}
+
+/* slight overlap offsets */
+.ring:nth-child(2) {
+  transform: translateX(40px);
+}
+
+.ring:nth-child(4) {
+  transform: translateY(30px);
+}
+
+/* Form */
+.signup-form {
+  position: relative;
+  z-index: 5;
+  width: 320px;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 35px;
+
+  background: #fff;
+  border-radius: 12px;
+
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+/* Inputs */
+.signup-form input {
+  width: 100%;
+  margin: 12px 0;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* Button */
+.signup-form button {
+  width: 100%;
+  padding: 12px;
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.signup-form button:hover {
+  background: #222;
+}
